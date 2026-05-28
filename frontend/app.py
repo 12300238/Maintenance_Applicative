@@ -23,5 +23,6 @@ for i, t in enumerate(st.session_state["tasks"]):
     with col2:
         if st.button("Marquer comme fait", key=f"done_{i}"):
             st.session_state["tasks"][i]["done"] = True
+
             st.rerun()  # Rafraîchir pour mettre à jour l'affichage
 # Lancer l'application avec : streamlit run app.py
