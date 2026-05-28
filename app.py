@@ -12,6 +12,7 @@ new_task = st.text_input("Ajouter une tâche")
 if st.button("Ajouter") or new_task:
     if new_task.strip() != "":
         st.session_state["tasks"].append({"task": new_task, "done": False})
+        st.rerun()  # Rafraîchir pour afficher la nouvelle tâche
 
 # Afficher les tâches
 st.subheader("Liste des tâches")
@@ -22,5 +23,5 @@ for i, t in enumerate(st.session_state["tasks"]):
     with col2:
         if st.button("Marquer comme fait", key=f"done_{i}"):
             st.session_state["tasks"][i]["done"] = True
-
+            st.rerun()  # Rafraîchir pour mettre à jour l'affichage
 # Lancer l'application avec : streamlit run app.py
