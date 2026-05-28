@@ -9,7 +9,7 @@ st.title("Ma TodoList")
 
 # Ajouter une nouvelle tâche
 new_task = st.text_input("Ajouter une tâche")
-if st.button("Ajouter") or new_task:
+if st.button("Ajouter"):
     if new_task.strip() != "":
         st.session_state["tasks"].append({"task": new_task, "done": False})
         st.rerun()  # Rafraîchir pour afficher la nouvelle tâche
