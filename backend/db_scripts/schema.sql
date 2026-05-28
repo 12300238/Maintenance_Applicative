@@ -30,8 +30,9 @@ CREATE TABLE IF NOT EXISTS tasks (
     to_do_list_id uuid NOT NULL REFERENCES to_do_lists(id) ON DELETE CASCADE,
     user_id uuid REFERENCES users(id) ON DELETE SET NULL,
     title text NOT NULL,
-    task_state bool NOT NULL,
+    task_state bool NOT NULL, 
     created_at timestamptz NOT NULL DEFAULT now(),
+    task_priority ENUM('faible','moyenne','haute') NOT NULL, 
     updated_at timestamptz NOT NULL DEFAULT now()
 );
 
